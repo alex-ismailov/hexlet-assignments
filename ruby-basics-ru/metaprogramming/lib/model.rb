@@ -1,11 +1,10 @@
-# # frozen_string_literal: true
+# frozen_string_literal: true
 
 # BEGIN
 module Model
   def self.included(base)
     base.extend(ClassMethods)
   end
-
 
   attr_accessor :attrs
 
@@ -39,7 +38,7 @@ module Model
       when :datetime
         DateTime.parse(value)
       when :booolean
-        value == :true
+        value.to_s == 'true'
       else
         value
       end
@@ -49,7 +48,7 @@ module Model
       @attr_options ||= {}
       @attr_options[name] = options
 
-      define_method "#{name}" do
+      define_method name.to_s do
         @attrs[name]
       end
 
