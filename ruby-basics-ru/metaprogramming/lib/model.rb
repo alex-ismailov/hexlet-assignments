@@ -37,7 +37,7 @@ module Model
         String value
       when :datetime
         DateTime.parse(value)
-      when :booolean
+      when :boolean
         value.to_s == 'true'
       else
         value
