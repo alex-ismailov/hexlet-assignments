@@ -6,22 +6,22 @@ module Model
     base.extend(ClassMethods)
   end
 
-  attr_accessor :attributes
+  attr_accessor :attrs
 
-  def initialize(attributes = {})
-    @attributes = {}
+  def initialize(attrs = {})
+    @attrs = {}
 
     self.class.attr_options.each do |name, options|
-      value = attributes.key?(name) ? attributes[name] : options.fetch(:default, nil)
-      options = self.class.attr_options[name]
-      @attributes[name] = self.class.convert_to_type(value, options[:type])
+      # value = attrs.key?(name) ? attrs[name] : nil
+      value = attrs.key?(name) ? attrs[name] : options.fetch(:default, nil)
+      @attrs[name] = self.class.convert_to_type(value, options[:type])
     end
   end
 
   def attributes
-    @attributes.each_with_object({}) do |attr, acc|
-      key, value = attr
-      acc[key] = value
+    @attrs.each_with_object({}) do |attr, acc|
+      name, value = attr
+      acc[name] = value
     end
   end
 
@@ -29,7 +29,7 @@ module Model
     attr_reader :attr_options
 
     def convert_to_type(value, type)
-      return nil if value.nil?
+      return value if value.nil?
 
       case type
       when :integer
@@ -38,8 +38,8 @@ module Model
         String value
       when :datetime
         DateTime.parse(value)
-      when :boolean
-        value.to_s == 'true'
+      when :booolean
+        value == :true
       else
         value
       end
@@ -50,14 +50,13 @@ module Model
       @attr_options[name] = options
 
       define_method "#{name}" do
-        @attributes[name]
+        @attrs[name]
       end
 
       define_method "#{name}=" do |value|
         options = self.class.attr_options[name]
-        @attributes[name] = self.class.convert_to_type(value, options[:type])
+        @attrs[name] = self.class.convert_to_type(value, options[:type])
       end
     end
   end
 end
-# END
