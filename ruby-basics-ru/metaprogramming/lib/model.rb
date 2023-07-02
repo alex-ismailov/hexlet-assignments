@@ -12,7 +12,6 @@ module Model
     @attrs = {}
 
     self.class.attr_options.each do |name, options|
-      # value = attrs.key?(name) ? attrs[name] : nil
       value = attrs.key?(name) ? attrs[name] : options.fetch(:default, nil)
       @attrs[name] = self.class.convert_to_type(value, options[:type])
     end
