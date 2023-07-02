@@ -6,6 +6,7 @@ module Model
     base.extend(ClassMethods)
   end
 
+
   attr_accessor :attrs
 
   def initialize(attrs = {})
