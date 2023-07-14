@@ -9,7 +9,7 @@ require_relative 'app/router'
 module App
   def self.init
     Rack::Builder.new do |builder|
-      # builder.use AdminPolicy
+      builder.use AdminPolicy
       # BEGIN
       
       # END

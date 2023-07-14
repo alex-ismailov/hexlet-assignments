@@ -32,15 +32,15 @@ class AppTest < Minitest::Test
     assert_match(/404 Not Found/, last_response.body)
   end
 
-  # def test_admin_forbidden
-  #   get '/admin'
+  def test_admin_forbidden
+    get '/admin'
 
-  #   assert { last_response.forbidden? }
-  # end
+    assert { last_response.forbidden? }
+  end
 
-  # def test_admin_forbidden2
-  #   get '/admin/abc'
+  def test_admin_forbidden2
+    get '/admin/abc'
 
-  #   assert { last_response.forbidden? }
-  # end
+    assert { last_response.forbidden? }
+  end
 end

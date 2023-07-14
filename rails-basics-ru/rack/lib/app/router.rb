@@ -17,10 +17,6 @@ class Router
     else
       [404, {}, ["404 Not Found"]]
     end
-
-    # puts '//////////////\n'
-    # puts request
-    # puts '//////////////\n'
     # END
   end
 end
