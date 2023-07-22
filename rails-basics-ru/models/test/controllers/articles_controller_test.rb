@@ -1,21 +1,13 @@
-# frozen_string_literal: true
+require "test_helper"
 
-require 'test_helper'
-
-class ArticlesTest < ActionDispatch::IntegrationTest
-  setup do
-    @article = articles(:one)
-  end
-
-  test 'should get index' do
-    get articles_url
-
+class ArticlesControllerTest < ActionDispatch::IntegrationTest
+  test "should get index" do
+    get articles_index_url
     assert_response :success
   end
 
-  test 'should show article' do
-    get article_url @article
-
+  test "should get show" do
+    get articles_show_url
     assert_response :success
   end
 end
