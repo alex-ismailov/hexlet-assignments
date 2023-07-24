@@ -1,13 +1,17 @@
 require "test_helper"
 
 class BulletinsControllerTest < ActionDispatch::IntegrationTest
-  test "should get index" do
+  setup do
+    @bulletin = bulletins(:bulletin_1)
+  end
+
+  test 'should get index' do
     get bulletins_url
     assert_response :success
   end
 
-  test "should get show page" do
-    get bulletins_url(Bulletin.first)
+  test 'should show bulletin' do
+    get bulletin_url(@bulletin)
     assert_response :success
   end
 end
