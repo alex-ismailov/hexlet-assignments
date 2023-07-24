@@ -6,3 +6,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+15.times do |index|
+  Bulletin.create(
+    title: "Bulletin #{index}",
+    body: Faker::Lorem.sentence(word_count: 150),
+    published: [true, false].sample,
+  )
+end
