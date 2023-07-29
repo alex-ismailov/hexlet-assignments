@@ -44,7 +44,7 @@ class TasksController < ApplicationController
 
     if @task.destroy
       flash[:success] = 'Task was successfully deleted'
-      redirect_to root_path
+      redirect_to tasks_path
     else
       flash[:failure] = 'Task cannot be deleted'
       redirect_to task_path(@task), status: :unprocessable_entity

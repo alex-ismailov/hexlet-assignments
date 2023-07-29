@@ -31,5 +31,6 @@
 
   <%= link_to "Edit", edit_task_path(@task) %>
   <br>
+  <%= link_to "Delete", task_path(@task), data: { turbo_confirm: 'Are you sure?', "turbo-method": :delete } %>
   <%= link_to "Tasks", tasks_path %>
 </div>

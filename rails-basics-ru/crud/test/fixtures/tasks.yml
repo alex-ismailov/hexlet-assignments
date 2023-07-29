@@ -14,4 +14,4 @@ two:
   status: MyString
   creator: MyString
   performer: MyString
-  completed: false
+  completed: true
