@@ -1,0 +1,35 @@
+<div>
+  <h1>
+    <%= @task.name %>
+  </h1>
+
+  <p>
+    <%= @task.description %>
+  </p>
+
+  <div>
+    status: <%= @task.status %>
+  </div>
+
+  <div>
+    creator: <%= @task.creator %>
+  </div>
+
+  <div>
+    performer:  <%= @task.performer %>
+  </div>
+
+  <div>
+    completed: <%= @task.completed ? 'Completed' : 'In Progress' %>
+  </div>
+
+  <div>
+    <%= @task.created_at %>
+  </div>
+
+  <br>
+
+  <%= link_to "Edit", edit_task_path(@task) %>
+  <br>
+  <%= link_to "Tasks", tasks_path %>
+</div>
