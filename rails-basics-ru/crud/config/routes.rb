@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  # resources :tasks
+  resources :tasks
   root 'home#index'
   # BEGIN
   resources :tasks, only: %i[index show new create edit update destroy]
