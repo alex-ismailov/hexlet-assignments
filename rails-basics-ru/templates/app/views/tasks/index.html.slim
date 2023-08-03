@@ -1,0 +1,14 @@
+h1 Tasks
+
+div
+  button
+    = link_to '+Add new task', new_task_path
+
+br
+
+div
+  - @tasks.each do |task|
+    p= link_to task.name, task
+    small
+      i #{task.creator}, #{task.created_at.strftime("%H:%m %d.%m.%Y")}
+    hr

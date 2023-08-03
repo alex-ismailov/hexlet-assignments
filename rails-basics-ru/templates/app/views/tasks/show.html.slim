@@ -1,0 +1,26 @@
+h1 
+  | Task # 
+  = @task.id
+
+h2
+  = @task.name
+
+p
+  = @task.description
+
+small
+  div
+    = @task.creator
+
+  div
+    = @task.created_at.strftime("%H:%m %d.%m.%Y")
+
+div 
+  = @task.performer
+
+div
+  = link_to 'Tasks', tasks_path(@task) 
+  br
+  = link_to 'Edit Task', edit_task_path(@task)
+  br
+  = link_to 'Delete Task', tasks_path(@task), data: { turbo_confirm: 'Are you sure?', "turbo-method": :delete }
