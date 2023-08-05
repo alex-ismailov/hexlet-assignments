@@ -1,0 +1,11 @@
+h1 Posts
+
+= link_to "+ Add new Post", new_post_path
+br
+hr
+br
+
+- @posts.each do |post|
+  = link_to post.title, post_path(post)
+  p= post.summary 
+  hr

@@ -1,0 +1,10 @@
+= simple_form_for @post do |f|
+  = f.input :title, label_html: { class: 'form-label' }, input_html: { class: 'form-controll' }
+  br
+  = f.input :body
+  br
+  = f.input :summary
+  br
+  = f.input :published
+  br
+  = f.submit 
