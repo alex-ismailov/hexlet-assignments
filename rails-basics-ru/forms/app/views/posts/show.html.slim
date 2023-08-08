@@ -1,20 +1,16 @@
-h1
-  | Post # 
-  = @post.id
-
-h2
-  = @post.title 
+p#notice = notice
 
 p
- = @post.summary
-
+  strong Title:
+  = @post.title
 p
- = @post.body
-
+  strong Body:
+  = @post.body
 p
- = @published 
-
-br
-= link_to 'Edit to Post', edit_post_path(@post) 
-br
-= link_to '<<< Back to Posts', posts_path
+  strong Summary:
+  = @post.summary
+p
+  strong Published:
+  = @post.published
+= link_to 'Edit', edit_post_path(@post)
+= link_to 'Back', posts_path
