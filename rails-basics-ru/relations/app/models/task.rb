@@ -7,19 +7,22 @@
 #  name        :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  status_id   :integer          not null
 #  user_id     :integer          not null
 #
 # Indexes
 #
-#  index_tasks_on_user_id  (user_id)
+#  index_tasks_on_status_id  (status_id)
+#  index_tasks_on_user_id    (user_id)
 #
 # Foreign Keys
 #
-#  user_id  (user_id => users.id)
+#  status_id  (status_id => statuses.id)
+#  user_id    (user_id => users.id)
 #
 class Task < ApplicationRecord
   belongs_to :user
-  has_one :status
+  belongs_to :status
 
-  validates :name, :description, :user_id, presence: true
+  validates :name, :description, :user_id, :status_id, presence: true
 end

@@ -11,6 +11,8 @@
 #
 class Status < ApplicationRecord
   # BEGIN
+  has_many :tasks
+
   validates :name, presence: true #, presence: true
   # END
 end

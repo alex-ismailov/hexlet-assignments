@@ -7,5 +7,12 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
+one:
+  name: New
 
+two:
+  name: In Progress
+
+three:
+  name: Done
 # END

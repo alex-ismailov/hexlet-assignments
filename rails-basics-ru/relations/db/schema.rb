@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_12_051153) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_12_202926) do
   create_table "statuses", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
@@ -23,6 +23,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_12_051153) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id", null: false
+    t.integer "status_id", null: false
+    t.index ["status_id"], name: "index_tasks_on_status_id"
     t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 
@@ -32,5 +34,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_12_051153) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "tasks", "statuses"
   add_foreign_key "tasks", "users"
 end

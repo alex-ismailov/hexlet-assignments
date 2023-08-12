@@ -7,5 +7,12 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
+one:
+  name: Alex User 1
 
+two:
+  name: Bob User 2
+
+three:
+  name: John User 3
 # END

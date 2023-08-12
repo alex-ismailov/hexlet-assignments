@@ -1,2 +1,10 @@
-h1 Tasks#edit
-p Find me in app/views/tasks/edit.html.slim
+= content_for :title do 
+  = 'Editing task'
+
+== render 'form', task: @task
+
+hr
+
+.d-flex
+  = link_to 'Show', @status, class: 'btn btn-outline-primary me-2'
+  = link_to 'Back', :back, class: 'btn btn-outline-primary'
