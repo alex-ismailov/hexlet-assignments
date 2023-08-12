@@ -17,15 +17,10 @@
 #
 #  user_id  (user_id => users.id)
 #
+require "test_helper"
 
-one:
-  name: MyString
-  description: MyText
-  user: one
-  status: one
-
-two:
-  name: MyString
-  description: MyText
-  user: two
-  status: two
+class TaskTest < ActiveSupport::TestCase
+  # test "the truth" do
+  #   assert true
+  # end
+end

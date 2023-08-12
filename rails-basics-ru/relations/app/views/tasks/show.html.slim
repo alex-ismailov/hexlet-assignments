@@ -1,0 +1,11 @@
+= content_for :title do
+  = @task.id
+
+p
+  = @task.description
+
+hr
+
+.d-flex
+  = link_to 'Back', tasks_path, class: 'btn btn-outline-primary me-2'
+

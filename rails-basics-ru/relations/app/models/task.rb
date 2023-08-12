@@ -17,15 +17,9 @@
 #
 #  user_id  (user_id => users.id)
 #
+class Task < ApplicationRecord
+  belongs_to :user
+  has_one :status
 
-one:
-  name: MyString
-  description: MyText
-  user: one
-  status: one
-
-two:
-  name: MyString
-  description: MyText
-  user: two
-  status: two
+  validates :name, :description, :user_id, presence: true
+end
