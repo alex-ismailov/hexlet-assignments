@@ -2,7 +2,7 @@
 
 class Post < ApplicationRecord
   # BEGIN
-
+  
   # END
 
   validates :title, presence: true
