@@ -14,17 +14,25 @@ Rails.application.routes.draw do
   # get 'comments/destroy'
 
   # BEGIN
-  scope module: :posts do
-    resources :post, only: %i[index], as: 'posts'
 
-    resources :post, except: [:index] do
-      # resources comments, only: %i[index new create]
+  resources :posts do
+    scope module: :posts do
+      resources :comments, only: %i[index new create]
     end
-
-    # resources :post, shallow: true do
-      # resources comments, only: %i[show edit update destroy]
-    # end
   end
+
+  resources :posts, shallow: true do
+    scope module: :posts do
+      resources :comments, only: %i[edit update destroy]
+    end
+  end
+
+  resources :posts, shallow: true do
+    scope module: :posts, shallow_prefix: 'post' do
+      resources :comments, only: %i[show]
+    end
+  end
+
   # END
 
 
