@@ -34,11 +34,11 @@ class Posts::CommentsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to post_url(@comment.post)
   end
 
-  # test "should destroy posts_comment" do
-  #   assert_difference("Posts::Comment.count", -1) do
-  #     delete posts_comment_url(@posts_comment)
-  #   end
+  test "should destroy post_comment" do
+    delete comment_url(@comment)
 
-  #   assert_redirected_to posts_comments_url
-  # end
+    assert { !PostComment.exists?(@comment.id)}
+
+    assert_redirected_to post_url(@post)
+  end
 end
