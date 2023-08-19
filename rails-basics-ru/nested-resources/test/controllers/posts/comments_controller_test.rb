@@ -29,10 +29,10 @@ class Posts::CommentsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  # test "should update posts_comment" do
-  #   patch posts_comment_url(@posts_comment), params: { posts_comment: {  } }
-  #   assert_redirected_to posts_comment_url(@posts_comment)
-  # end
+  test "should update posts_comment" do
+    patch post_comment_url(@comment), params: { post_comment: @attrs }
+    assert_redirected_to post_url(@comment.post)
+  end
 
   # test "should destroy posts_comment" do
   #   assert_difference("Posts::Comment.count", -1) do
