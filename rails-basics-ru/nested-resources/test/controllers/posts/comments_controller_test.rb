@@ -3,7 +3,7 @@ require "test_helper"
 class Posts::CommentsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @post = posts(:one)
-    @posts_comment = post_comments(:one)
+    @comment = post_comments(:one)
 
     @attrs = {
       body: Faker::ChuckNorris.fact
@@ -24,15 +24,10 @@ class Posts::CommentsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to post_url(comment.post)
   end
 
-  # test "should show posts_comment" do
-  #   get posts_comment_url(@posts_comment)
-  #   assert_response :success
-  # end
-
-  # test "should get edit" do
-  #   get edit_posts_comment_url(@posts_comment)
-  #   assert_response :success
-  # end
+  test 'should get edit' do
+    get edit_comment_url(@comment)
+    assert_response :success
+  end
 
   # test "should update posts_comment" do
   #   patch posts_comment_url(@posts_comment), params: { posts_comment: {  } }
