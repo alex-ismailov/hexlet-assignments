@@ -27,9 +27,7 @@ module Posts
     end
   
     def update
-      # debugger
       if @comment.update(comment_params)
-        # debugger
         redirect_to post_path(@comment.post), notice: 'Comment was successfully updated.'
       else
         render :edit, status: :unprocessable_entity
