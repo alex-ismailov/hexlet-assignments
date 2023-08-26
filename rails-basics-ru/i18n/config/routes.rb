@@ -14,9 +14,11 @@ Rails.application.routes.draw do
   # end
 
   # get "/", to: 'home#index'
-  root 'home#index'
+  # root 'home#index'
 
   scope ('/:locale'), locale: /en|ru/ do
+    root 'home#index'
+
     resources :posts do
       scope module: :posts do
         resources :comments
