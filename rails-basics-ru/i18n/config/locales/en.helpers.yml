@@ -1,0 +1,8 @@
+en:
+  helpers:
+    submit:
+      post:
+        create: "Create Post"
+        update: "Update Post"
+      post_comment:
+        create: "Create comment"
