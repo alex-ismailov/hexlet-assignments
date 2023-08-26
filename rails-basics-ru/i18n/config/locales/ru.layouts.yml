@@ -2,6 +2,7 @@ ru:
   layouts:
     application:
       hexlet_title: © Хекслет, %{year}
+      title: Хекслет
     shared:
       nav:
         hexlet_logo: Хекслет

@@ -16,12 +16,22 @@ Rails.application.routes.draw do
   # get "/", to: 'home#index'
   # root 'home#index'
 
-  scope ('/:locale'), locale: /en|ru/ do
+  # scope ('/:locale'), locale: /en|ru/ do
+  #   # root 'home#index'
+
+  #   resources :posts do
+  #     scope module: :posts do
+  #       resources :comments
+  #     end
+  #   end
+  # end
+
+  scope '(:locale)', locale: /en|ru/ do
     root 'home#index'
 
     resources :posts do
       scope module: :posts do
-        resources :comments
+        resources :comments, only: %i[edit create update destroy]
       end
     end
   end
