@@ -29,7 +29,7 @@ class PostsTest < ApplicationSystemTestCase
     click_on 'New Post'
     fill_in 'post[title]', with: 'My Post Title'
     fill_in 'post[body]',
-            with: 'My post text My post text My post text My post text My post text My post text My post text'
+            with: 'My post text text My post text'
     click_button 'Create Post'
 
     assert_text 'Post was successfully created.'
@@ -41,7 +41,7 @@ class PostsTest < ApplicationSystemTestCase
     click_on 'Edit', match: :first
     fill_in 'post[title]', with: 'Updated My Post Title'
     fill_in 'post[body]',
-            with: 'Updated Updated Updated My post text My post text My post text My post text My post text My post text My post text'
+            with: 'Updated Updated Updated text My post text My post text My post text My post text My post text'
     click_button 'Update Post'
 
     assert_text 'Post was successfully updated.'
