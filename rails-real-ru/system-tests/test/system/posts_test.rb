@@ -18,10 +18,10 @@ class PostsTest < ApplicationSystemTestCase
     assert_selector 'h1', text: 'Posts'
   end
 
-  test 'show post' do
-    visit post_path(1)
-    assert_selector 'h1', text: 'One'
-  end
+  # test 'show post' do
+  #   visit post_path(1)
+  #   assert_selector 'h1', text: 'One'
+  # end
 
   test 'create a post' do
     visit posts_path

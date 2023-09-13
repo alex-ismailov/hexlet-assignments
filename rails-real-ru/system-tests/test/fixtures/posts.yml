@@ -5,14 +5,16 @@
 # below each fixture, per the syntax in the comments below
 #
 one:
-  id: 1
+  # id: 1
   title: One
   body: One body
 
 two:
+  # id: 2
   title: Two
   body: Two body
 
 without_comments:
+  # id: 3
   title: Without comments
   body: Without comments body

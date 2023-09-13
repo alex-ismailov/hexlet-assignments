@@ -8,7 +8,7 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
     @post = @comment.post
 
     @attrs = {
-      body: Faker::Books::Dune.quote
+      body: Faker::Books::Dune.quote,
     }
   end
 
