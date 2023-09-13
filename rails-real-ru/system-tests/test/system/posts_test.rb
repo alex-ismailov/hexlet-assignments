@@ -1,14 +1,8 @@
 # frozen_string_literal: true
 
-require "application_system_test_case"
+require 'application_system_test_case'
 
 class PostsTest < ApplicationSystemTestCase
-  # test "visiting the index" do
-  #   visit posts_url
-  #
-  #   assert_selector "h1", text: "Post"
-  # end
-
   # BEGIN
   setup do
     @post = posts(:one)
@@ -16,24 +10,17 @@ class PostsTest < ApplicationSystemTestCase
 
   test 'visiting home page' do
     visit root_path
-    assert_selector "h1", text: "Home#index"
+    assert_selector 'h1', text: 'Home#index'
   end
 
   test 'visiting posts page' do
     visit posts_path
-    assert_selector "h1", text: "Posts"
+    assert_selector 'h1', text: 'Posts'
   end
-
-  # show
-  # new
-  # edit
-  # create
-  # update
-  # destroy
 
   test 'show post' do
     visit post_path(1)
-    assert_selector "h1", text: "One"
+    assert_selector 'h1', text: 'One'
   end
 
   test 'create a post' do
@@ -41,7 +28,8 @@ class PostsTest < ApplicationSystemTestCase
 
     click_on 'New Post'
     fill_in 'post[title]', with: 'My Post Title'
-    fill_in 'post[body]', with: 'My post text My post text My post text My post text My post text My post text My post text'
+    fill_in 'post[body]',
+            with: 'My post text My post text My post text My post text My post text My post text My post text'
     click_button 'Create Post'
 
     assert_text 'Post was successfully created.'
@@ -52,7 +40,8 @@ class PostsTest < ApplicationSystemTestCase
 
     click_on 'Edit', match: :first
     fill_in 'post[title]', with: 'Updated My Post Title'
-    fill_in 'post[body]', with: 'Updated Updated Updated My post text My post text My post text My post text My post text My post text My post text'
+    fill_in 'post[body]',
+            with: 'Updated Updated Updated My post text My post text My post text My post text My post text My post text My post text'
     click_button 'Update Post'
 
     assert_text 'Post was successfully updated.'
