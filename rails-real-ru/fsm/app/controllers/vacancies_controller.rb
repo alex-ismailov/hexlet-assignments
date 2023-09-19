@@ -21,21 +21,42 @@ class VacanciesController < ApplicationController
   end
 
   # BEGIN
+  # My solution
+  # def publish
+  #   @vacancy = Vacancy.find(params[:id])
+  #   if @vacancy.archived?
+  #     redirect_to vacancies_path, notice: 'You can`t publish archived vacancy'
+  #   else
+  #     @vacancy.publish!
+  #     redirect_to vacancies_path, notice: 'Status was successfully updated.'
+  #   end
+  # end
+
+  # def archive
+  #   @vacancy = Vacancy.find(params[:id])
+  #   @vacancy.archive!
+  #   redirect_to vacancies_path, notice: 'Vacancy was successfully archived.'
+  # end
+
+  # Hexlet solution
   def publish
-    @vacancy = Vacancy.find(params[:id])
-    # TODO: change exception to false
-    if @vacancy.archived?
-      redirect_to vacancies_path, notice: 'You can`t publish archived vacancy'
+    @vacancy = Vacancy.find params[:id]
+
+    if @vacancy.publish!
+      redirect_to vacancies_path, notice: 'Vacancy was successfully published.'
     else
-      @vacancy.publish!
-      redirect_to vacancies_path, notice: 'Status was successfully updated.'
+      redirect_to vacancies_path, alert: 'Vacancy was not published.'
     end
   end
 
   def archive
-    @vacancy = Vacancy.find(params[:id])
-    @vacancy.archive!
-    redirect_to vacancies_path, notice: 'Vacancy was successfully archived.'
+    @vacancy = Vacancy.find params[:id]
+
+    if @vacancy.archive!
+      redirect_to vacancies_path, notice: 'Vacancy was successfully archived.'
+    else
+      redirect_to vacancies_path, alert: 'Vacancy was not archived.'
+    end
   end
   # END
 

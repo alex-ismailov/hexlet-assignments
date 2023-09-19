@@ -4,8 +4,12 @@ Rails.application.routes.draw do
   resources :vacancies, only: %i[index new create] do
     # BEGIN
     member do
-      patch 'publish'
-      patch 'archive'
+      # My solution
+      # patch 'publish'
+      # patch 'archive'
+      # Hexlet solution
+      patch :publish
+      patch :archive
     end
     # END
   end
