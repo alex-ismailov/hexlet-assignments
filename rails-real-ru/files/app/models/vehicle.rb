@@ -13,6 +13,7 @@ class Vehicle < ApplicationRecord
   validates :production_year, presence: true
 
   # BEGIN
-  validates :image, attached: true, content_type: %i[png jpg jpeg], size: { less_than: 5.megabytes , message: 'is too large' }
+  validates :image, attached: true, content_type: %i[png jpg jpeg],
+                    size: { less_than: 5.megabytes, message: 'is too large' }
   # END
 end
