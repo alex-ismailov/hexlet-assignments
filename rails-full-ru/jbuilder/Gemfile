@@ -9,8 +9,8 @@ gem 'rails', '~> 7.0'
 gem 'sqlite3'
 
 # Use Puma as the app server
-# gem 'puma', '~> 5.0' # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
-gem 'puma', '~> 6.0'
+gem 'puma', '~> 5.0' # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
+# gem 'puma', '~> 6.0'
 gem 'sprockets-rails'
 
 # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
@@ -43,7 +43,7 @@ gem 'simple_form'
 gem 'slim-rails'
 
 # BEGIN
-
+gem 'active_model_serializers', '~> 0.10.0'
 # END
 
 group :development, :test do
