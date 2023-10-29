@@ -4,7 +4,7 @@ require 'csv'
 
 class Web::UsersController < Web::ApplicationController
   # BEGIN
-  
+  include ActionController::Live
   # END
 
   def index
@@ -61,7 +61,14 @@ class Web::UsersController < Web::ApplicationController
   end
 
   # BEGIN
-  
+  def stream_csv
+    response.headers['Content-Type'] = 'text/event-stream'
+    response.headers['Last-Modified'] = Time.now.httpdate
+    csv = generate_csv(User.column_names, User.all)
+    send_data(csv, filename: 'report.csv')
+  ensure
+    response.stream.close
+  end
   # END
 
   private
