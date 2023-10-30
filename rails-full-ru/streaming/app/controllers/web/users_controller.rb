@@ -81,6 +81,8 @@ class Web::UsersController < Web::ApplicationController
         stream.write "#{user.id},#{user.name},#{user.email},#{user.created_at},#{user.updated_at}\n"
       end
     end
+  ensure
+    response.stream.close
   end
   # END
 
