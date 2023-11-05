@@ -11,8 +11,8 @@ gem 'sqlite3'
 gem 'sprockets-rails'
 
 # Use the Puma web server [https://github.com/puma/puma]
-# gem 'puma', '~> 5.0' # for hexlet CI tests
-gem 'puma', '~> 6.0' # for local dev
+gem 'puma', '~> 5.0' # for hexlet CI tests
+# gem 'puma', '~> 6.0' # for local dev
 
 # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
 gem 'jsbundling-rails'
