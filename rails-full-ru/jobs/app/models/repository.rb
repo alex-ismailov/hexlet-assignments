@@ -15,15 +15,19 @@ class Repository < ApplicationRecord
     state :fetching, :fetched, :failed
 
     event :fetch do
-      transitions from: [:created, :fetched], to: :fetching
+      transitions from: %i[created fetched failed], to: :fetching
     end
 
-    event :fetch_success do
+    event :rollback do
+      transitions from: :fetching, to: :created
+    end
+
+    event :mark_as_fetched do
       transitions from: :fetching, to: :fetched
     end
 
-    event :fetch_fail do
-      transitions from: :fetching, to: :failed
+    event :mark_as_failed do
+      transitions to: :failed
     end
   end
   # END

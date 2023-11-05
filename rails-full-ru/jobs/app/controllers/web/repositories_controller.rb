@@ -19,9 +19,9 @@ class Web::RepositoriesController < Web::ApplicationController
 
     if @repository.save
       client = Octokit::Client.new
-      RepositoryLoaderJob.perform_later(@repository)
+      RepositoryLoaderJob.perform_later(@repository.id)
 
-      redirect_to repositories_path, notice: t('success')
+      redirect_to repository_path(@repository), notice: t('success')
     else
       flash[:notice] = t('fail')
       render :new, status: :unprocessable_entity
@@ -39,9 +39,9 @@ class Web::RepositoriesController < Web::ApplicationController
 
   def update_repos
     # BEGIN
-    @repositories = Repository.all
+    repositories = Repository.all.order(updated_at: :desc)
     @repositories.each do |repository|
-      RepositoryLoaderJob.perform_later(repository)
+      RepositoryLoaderJob.perform_later(repository.id)
     end
     redirect_to repositories_path, notice: t('success')
     # END
