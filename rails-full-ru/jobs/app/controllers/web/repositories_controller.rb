@@ -32,14 +32,14 @@ class Web::RepositoriesController < Web::ApplicationController
   def update
     # BEGIN
     @repository = Repository.find(params[:id])
-    RepositoryLoaderJob.perform_later(@repository)
+    RepositoryLoaderJob.perform_later(@repository.id)
     redirect_to repositories_path, notice: t('success')
     # END
   end
 
   def update_repos
     # BEGIN
-    repositories = Repository.all.order(updated_at: :desc)
+    @repositories = Repository.all.order(updated_at: :desc)
     @repositories.each do |repository|
       RepositoryLoaderJob.perform_later(repository.id)
     end
