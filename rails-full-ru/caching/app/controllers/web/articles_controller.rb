@@ -2,7 +2,7 @@
 
 class Web::ArticlesController < Web::ApplicationController
   # BEGIN
-  
+  caches_action :show
   # END
 
   def index
@@ -10,6 +10,8 @@ class Web::ArticlesController < Web::ApplicationController
   end
 
   # BEGIN
-  
+  def show
+    @article = Article.find(params[:id])
+  end
   # END
 end
