@@ -4,6 +4,6 @@
 .row.row-cols-3
   - @articles.each do |article|
     / BEGIN
-    - cache article do
-      = render 'article', article: article 
+    - cache article
+      = render article 
     / END
