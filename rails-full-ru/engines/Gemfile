@@ -8,9 +8,8 @@ gem 'rails', '~> 7.0'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
-# gem 'puma', '~> 5.0' # for Hexlet CI tests
-gem 'puma', '~> 6.0' # for local dev
-
+# gem 'puma', '~> 6.0'
+gem 'puma', '~> 5.0'
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
 
@@ -76,5 +75,5 @@ gem 'rexml', '~> 3.2', '>= 3.2.4'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 # BEGIN
-
+gem 'rails_stats', path: 'engines/rails_stats'
 # END
